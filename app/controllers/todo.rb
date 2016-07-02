@@ -10,7 +10,6 @@ module V1
 
     def create(**params)
       payload = request.payload.contents
-
       respond_with Models::Todo.create payload
     end
 
