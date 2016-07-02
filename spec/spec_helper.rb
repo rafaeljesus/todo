@@ -6,7 +6,7 @@ require 'rack/test'
 
 ENV['RACK_ENV'] = 'test'
 
-# $LOAD_PATH.unshift File.expand_path '../../app', __FILE__
+$LOAD_PATH.unshift File.expand_path '../../app', __FILE__
 mongo_file = File.expand_path '../../config/mongoid.yml', __FILE__
 
 Bundler.setup :default, :test
