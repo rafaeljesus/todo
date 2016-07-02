@@ -15,8 +15,23 @@ module V1
       end
 
       action :index do
+        description 'Returns a collection os all available todos.'
+
         routing do
           get '/todos'
+        end
+      end
+
+      action :create do
+        description 'Create a todo item on database.'
+
+        routing do
+          post '/todos'
+        end
+
+        payload do
+          attribute :title, String, required: true
+          attribute :done, Boolean, required: true
         end
       end
     end

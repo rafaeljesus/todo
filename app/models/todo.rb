@@ -2,6 +2,7 @@ module Models
   class Todo
     include Mongoid::Document
 
-    field :status, type: String
+    field :title, type: String
+    field :done, type: Boolean
   end
 end
