@@ -2,10 +2,12 @@ require 'spec_helper'
 require './app/models/todo'
 
 describe 'V1::Controller::Todo' do
+  _id = nil
   data = { title: 'Master praxis APIs', done: false }
 
   before do
-    Models::Todo.create data
+   model =  Models::Todo.create data
+   _id = model._id.to_s
   end
 
   after do
@@ -25,6 +27,14 @@ describe 'V1::Controller::Todo' do
       post '/api/todos?api_version=1', data, provides: 'json'
       body = JSON.parse last_response.body
       expect(body['done']).to eq false
+    end
+  end
+
+  context '.update' do
+    it 'update a todo item' do
+      put "/api/todos/#{_id}?api_version=1", data.merge(done: true), provides: 'json'
+      body = JSON.parse last_response.body
+      expect(body['done']).to eq true
     end
   end
 end

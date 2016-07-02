@@ -34,6 +34,23 @@ module V1
           attribute :done, Boolean, required: true
         end
       end
+
+      action :update do
+        description 'Update a todo item on database.'
+
+        routing do
+          put '/todos/:id'
+        end
+
+        params do
+          attribute :id, String, required: true
+        end
+
+        payload do
+          attribute :title, String, required: true
+          attribute :done, Boolean, required: true
+        end
+      end
     end
   end
 end
