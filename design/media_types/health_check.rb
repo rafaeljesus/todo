@@ -1,16 +1,7 @@
 module V1
   module MediaTypes
-    class HealthCheck < Praxis::MediaType
-
+    class Base < Praxis::MediaType
       identifier 'application/json'
-
-      attributes do
-        attribute :string, String
-      end
-
-      view :default do
-        attribute :string
-      end
     end
   end
 end

@@ -1,5 +1,13 @@
 # Main entry point - DO NOT MODIFY THIS FILE
+require 'bundler/setup'
+require 'yaml'
+require 'mongoid'
+
 ENV['RACK_ENV'] ||= 'development'
+
+mongo_file = File.expand_path '../mongoid.yml', __FILE__
+
+Mongoid.load!(mongo_file, ENV['RACK_ENV'])
 
 Bundler.require(:default, ENV['RACK_ENV'])
 

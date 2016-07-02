@@ -1,14 +1,14 @@
 module V1
   module ApiResources
-    class HealthCheck
+    class Todo
       include Praxis::ResourceDefinition
 
-      description 'Resource to check if the application is running.'
+      description 'Resources of the Todo application.'
 
       media_type V1::MediaTypes::Base
       version '1'
 
-      prefix '/'
+      prefix '/api'
 
       action_defaults do
         response :ok
@@ -16,7 +16,7 @@ module V1
 
       action :index do
         routing do
-          get '/health_check'
+          get '/todos'
         end
       end
     end
