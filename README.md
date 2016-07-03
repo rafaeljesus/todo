@@ -1,5 +1,7 @@
 ## Todo App
 
+[![CircleCI](https://circleci.com/gh/rafaeljesus/todo.svg?style=svg)](https://circleci.com/gh/rafaeljesus/todo)
+
 * Todo is a sample praxis api server
 * A minimal docker alpine container
 * Automatically pushes it to dockerhub if tests pass
