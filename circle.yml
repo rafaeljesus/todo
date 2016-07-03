@@ -1,0 +1,17 @@
+machine:
+  ruby:
+    version: 2.3.0
+  services:
+    - docker
+deployment:
+  master:
+    branch: master
+    commands:
+      - docker build -t rafaeljesus/todo .
+      - docker login -e $DOCKERHUB_EMAIL -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
+      - docker tag rafaeljesus/todo rafaeljesus/todo:master
+      - docker push rafaeljesus/todo:master
+
+test:
+  override:
+    - bundle exec rspec
