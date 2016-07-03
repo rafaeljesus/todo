@@ -20,6 +20,12 @@ module V1
       respond_with todo
     end
 
+    def delete id:
+      todo = Models::Todo.find id
+      todo.destroy
+      respond_with deleted: true
+    end
+
     private
     def respond_with body
       response.headers['Content-Type'] = 'application/json'

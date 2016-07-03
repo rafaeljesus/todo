@@ -37,4 +37,12 @@ describe 'V1::Controller::Todo' do
       expect(body['done']).to eq true
     end
   end
+
+  context '.delete' do
+    it 'delete a todo item' do
+      delete "/api/todos/#{_id}?api_version=1"
+      body = JSON.parse last_response.body
+      expect(body['deleted']).to eq true
+    end
+  end
 end

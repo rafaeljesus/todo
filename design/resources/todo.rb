@@ -51,6 +51,18 @@ module V1
           attribute :done, Boolean, required: true
         end
       end
+
+      action :delete do
+        description 'Delete a todo item on database.'
+
+        routing do
+          delete '/todos/:id'
+        end
+
+        params do
+          attribute :id, String, required: true
+        end
+      end
     end
   end
 end
